@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('SCM checkout') {
+                steps {
+                   git url : 'https://github.com/nagama98/selenuin-springboot.git'           }
+            }
+            stage('Build') {
+                        steps {
+                        bat 'mvn install'}
+                    }
+        stage('Version') {
+            steps {
+                bat 'mvn -v'            }
+        }
+
+        stage('Clean') {
+            steps {
+                bat 'mvn clean'            }
+        }
+
+        stage('Compile') {
+            steps {
+                bat 'mvn compile'            }
+        }
+        stage('Running test') {
+            steps {
+                bat 'mvn test'            }
+        }
+
+
+        stage('Package') {
+            steps {
+                bat 'mvn package'            }
+        }
+    }
+    post{
+    always{
+
+    }
+    }
+}

@@ -1,0 +1,23 @@
+node{
+    stage('checking mvn version')
+    {
+        bat 'mvn -v'
+
+    }
+    stage('Repo cloning')
+    {
+        git url : 'https://github.com/nagama98/selenuin-springboot.git'
+
+    }
+    stage('Clean')
+    {
+        bat 'mvn clean'
+
+    }
+    stage('Build')
+    {
+        bat 'mvn clean test'
+
+    }
+
+}

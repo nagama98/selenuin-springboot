@@ -26,12 +26,6 @@
         <relativePath />
     </parent>
 
-    <build>
-        <plugins>
-
-        </plugins>
-    </build>
-
     <dependencies>
 
         <dependency>
@@ -40,6 +34,12 @@
             <version>${webdriver.version}</version>
             <scope>test</scope>
         </dependency>
+		
+		<dependency>
+	<groupId>org.codehaus.mojo</groupId>
+    <artifactId>sonar-maven-plugin</artifactId>
+    <version>3.0.2</version>
+	</dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -84,4 +84,8 @@
         </dependency>
 
     </dependencies>
+
+
+    <packaging>jar</packaging>
+
 </project>
